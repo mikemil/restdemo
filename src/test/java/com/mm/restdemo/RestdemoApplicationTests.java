@@ -68,5 +68,6 @@ public class RestdemoApplicationTests {
 		ResponseEntity<Person> response = template.exchange(request, Person.class);
 
 		assertThat(response.getStatusCode(), equalTo(HttpStatus.BAD_REQUEST));
+		// include checks for the specific failures that occurred...
 	}
 }
