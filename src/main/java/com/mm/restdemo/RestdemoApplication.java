@@ -25,7 +25,7 @@ public class RestdemoApplication {
 			person.setFirstName("Mike");
 			person.setLastName("Miller");
 			person.setDob( LocalDate.of(1959, 12, 11));
-			person.setSalary(new BigDecimal(900000.00));
+			person.setSalary(new BigDecimal(90000.00));
 			personRepository.save(person);
 
 			Person rest = new Person();
@@ -34,6 +34,20 @@ public class RestdemoApplication {
 			rest.setDob(LocalDate.of (1980, 1, 1));
 			rest.setSalary(new BigDecimal(500000.00));
 			personRepository.save(rest);
+
+			Person rest1 = new Person();
+			rest1.setFirstName("Jonathan");
+			rest1.setLastName("FilsAime");
+			rest1.setDob(LocalDate.of (1995, 7, 1));
+			rest1.setSalary(new BigDecimal(50000.00));
+			personRepository.save(rest1);
+
+			Person rest2 = new Person();
+			rest2.setFirstName("Tyler");
+			rest2.setLastName("Davis");
+			rest2.setDob(LocalDate.of (2000, 12, 1));
+			rest2.setSalary(new BigDecimal(50000.00));
+			personRepository.save(rest2);
 
 		};
 	}
