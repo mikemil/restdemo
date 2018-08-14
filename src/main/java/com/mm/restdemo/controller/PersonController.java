@@ -9,10 +9,14 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/person")
 public class PersonController {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private PersonService personService;
 
@@ -23,16 +27,24 @@ public class PersonController {
 
     @RequestMapping( value = "/", method = RequestMethod.GET )
     public ResponseEntity<Iterable<Person>> list(){
+        logger.info("get list of persons");
+        logger.debug("this is a DEBUG message");
         Iterable<Person> personList = personService.list();
+
+        logger.info("persons:"+personList);
         return new ResponseEntity<>(personList, HttpStatus.OK);
     }
 
     @RequestMapping( value = "/{id}", method = RequestMethod.GET )
     public ResponseEntity<Person> read(@PathVariable(value="id") long id){
+        logger.info("get person for id="+id);
+        logger.debug("DEBUG the read method....");
         Optional<Person> person = personService.read(id);
         if ( person.isPresent() ) {
+            logger.info("person found:"+person.get());
             return new ResponseEntity<>( person.get(), null, HttpStatus.OK);
         } else {
+            logger.info("Person not found for id="+id);
             return new ResponseEntity<>(null, null, HttpStatus.NOT_FOUND);
         }
     }

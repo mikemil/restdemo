@@ -34,8 +34,6 @@ public class PersonServiceImpl implements PersonService {
     @Transactional
     public Person create(Person person) {
         return personRepository.save(person);
-        //System.out.println(person);
-        //return person;
     }
 
     @Override
