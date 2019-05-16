@@ -29,7 +29,7 @@ public class Person {
     private LocalDate dob;
 
     @DecimalMin("1.00")
-    @DecimalMax("999999.99")
+    @DecimalMax("9999999.99")
     @Column
     private BigDecimal salary;
 
